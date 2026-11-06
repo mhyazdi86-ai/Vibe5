@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe5 | Discover Music</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tailwind (config must come right after the CDN script) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ==================== Header ==================== -->
+    <header id="Header">
+      <!-- Logo -->
+      <a href="./index.html" class="Header-logo">
+        <img src="./Images/Logo & Sections/Logo 1.svg" alt="Vibe5 logo" />
+      </a>
+
+      <!-- Hamburger button (mobile / tablet only) -->
+      <button
+        class="Menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="headerMenu"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Collapsible area: navigation + search + account -->
+      <div class="Header-menu" id="headerMenu">
+        <!-- Navigation -->
+        <nav>
+          <a href="./index.html">Home</a>
+          <a href="#">My Playlists</a>
+          <a href="#">About Us</a>
+        </nav>
+
+        <!-- Search -->
+        <div id="Header-search">
+          <i class="fas fa-search" style="color: #8a94a1"></i>
+          <input
+            class="search-input"
+            type="search"
+            placeholder="Search artists or songs..."
+          />
+        </div>
+
+        <!-- Account Links -->
+        <div class="Header-account">
+          <a href="#">Login</a>
+          <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================ HERO SECTION ================  -->
+      <section class="w-full py-8 sm:py-12 lg:py-14">
+        <div class="w-full px-0 lg:px-[50px]">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+          >
+            <!-- LEFT COLUMN: Content & CTAs & Stats -->
+            <div
+              class="lg:col-span-7 flex flex-col items-start space-y-6 max-w-2xl"
+            >
+              <!-- Brand micro-pill -->
+              <div
+                class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-medium tracking-wider text-[#A9B3C1] border border-[#333C4A]/80 shadow-sm transition-colors hover:border-[#6D4BFF]/50"
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-[#39D8FF] animate-ping"
+                  style="animation-duration: 3s"
+                ></span>
+                <span
+                  class="text-xs uppercase tracking-widest text-[#F5F7FA]/90 font-semibold"
+                  >Vibe5 Acoustic Curations</span
+                >
+                <span class="text-[#333C4A] hidden sm:inline">|</span>
+                <span class="text-xs text-[#A9B3C1] font-normal hidden sm:inline"
+                  >Next-Gen Audio Discovery</span
+                >
+              </div>
+
+              <!-- Headline & Subtitle -->
+              <div class="space-y-4">
+                <h1
+                  class="text-4xl lg:text-5xl font-extrabold tracking-tight text-[#F5F7FA] leading-[1.1]"
+                >
+                  Your Rhythm, <br class="hidden sm:inline" />
+                  <span class="relative inline-block">
+                    <span
+                      class="bg-gradient-to-r from-[#F5F7FA] via-[#F5F7FA] to-[#A9B3C1] bg-clip-text text-transparent"
+                      >Your</span
+                    >
+                    <span
+                      class="bg-gradient-to-r from-[#6D4BFF] to-[#39D8FF] bg-clip-text text-transparent ml-2 drop-shadow-[0_0_35px_rgba(109,75,255,0.35)]"
+                      >Vibe.</span
+                    >
+                  </span>
+                </h1>
+                <p
+                  class="text-base text-[#A9B3C1] font-normal leading-relaxed max-w-lg text-balance"
+                >
+                  Discover your favorite artists, explore their top tracks, and
+                  find the music that matches your vibe.
+                </p>
+              </div>
+
+              <!-- CTAs Row -->
+              <div class="flex flex-wrap items-center gap-3.5 pt-1 w-full sm:w-auto">
+                <button
+                  class="px-6 py-2.5 rounded-full font-semibold text-sm text-[#F5F7FA] bg-[#6D4BFF] hover:bg-[#5b3ee0] inline-flex items-center gap-2 shadow-[0_4px_20px_-2px_rgba(109,75,255,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#6D4BFF]/50"
+                >
+                  <span>Explore Music</span>
+                  <svg class="w-4 h-4 text-[#F5F7FA] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+
+                <button
+                  class="px-6 py-2.5 rounded-full font-medium text-sm text-[#F5F7FA] bg-[#1E222B] hover:bg-[#2F3745] border border-[#333C4A] inline-flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#333C4A]"
+                >
+                  <svg class="w-4 h-4 text-[#39D8FF] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>Discover Artists</span>
+                </button>
+              </div>
+
+              <!-- Metrics Row -->
+              <div class="border-t border-[#333C4A]/50 pt-5 mt-4 w-full max-w-lg">
+                <div class="flex items-center gap-6 sm:gap-12">
+                  <!-- Stat 1 -->
+                  <div class="flex items-center gap-3 group">
+                    <div class="w-8 h-8 rounded-lg bg-[#1E222B] border border-[#333C4A] flex items-center justify-center group-hover:border-[#6D4BFF]/50 transition-colors duration-300 shadow-inner shrink-0">
+                      <svg class="w-4 h-4 text-[#6D4BFF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold tracking-tight text-[#F5F7FA]">24</span>
+                      </div>
+                      <p class="text-[11px] uppercase tracking-wider text-[#A9B3C1] font-medium">Curated Artists</p>
+                    </div>
+                  </div>
+
+                  <div class="h-7 w-px bg-[#333C4A]/80"></div>
+
+                  <!-- Stat 2 -->
+                  <div class="flex items-center gap-3 group">
+                    <div class="w-8 h-8 rounded-lg bg-[#1E222B] border border-[#333C4A] flex items-center justify-center group-hover:border-[#39D8FF]/50 transition-colors duration-300 shadow-inner shrink-0">
+                      <svg class="w-4 h-4 text-[#39D8FF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"></circle>
+                        <path d="M10 9v6l5-3-5-3z" fill="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold tracking-tight text-[#F5F7FA]">+120</span>
+                      </div>
+                      <p class="text-[11px] uppercase tracking-wider text-[#A9B3C1] font-medium">Mastered Songs</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Decorative Waveform Visual -->
+            <div class="lg:col-span-5 relative flex items-center justify-center">
+              <div class="relative w-full max-w-md mx-auto flex items-center justify-center py-2 lg:py-4">
+                <svg
+                  class="w-full max-w-md h-[200px] sm:h-[260px] lg:h-[300px] overflow-visible select-none pointer-events-none"
+                  fill="none"
+                  viewBox="0 0 680 400"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient id="delicatePurpleCyan" x1="0%" x2="100%" y1="30%" y2="70%">
+                      <stop offset="0%" stop-color="#6D4BFF" stop-opacity="0.15"></stop>
+                      <stop offset="30%" stop-color="#8F75FF" stop-opacity="0.85"></stop>
+                      <stop offset="70%" stop-color="#39D8FF" stop-opacity="0.9"></stop>
+                      <stop offset="100%" stop-color="#39D8FF" stop-opacity="0.2"></stop>
+                    </linearGradient>
+                    <linearGradient id="delicateCyanPurple" x1="0%" x2="100%" y1="50%" y2="50%">
+                      <stop offset="0%" stop-color="#39D8FF" stop-opacity="0.1"></stop>
+                      <stop offset="35%" stop-color="#39D8FF" stop-opacity="0.85"></stop>
+                      <stop offset="75%" stop-color="#6D4BFF" stop-opacity="0.85"></stop>
+                      <stop offset="100%" stop-color="#6D4BFF" stop-opacity="0.15"></stop>
+                    </linearGradient>
+                    <linearGradient id="delicateVioletWave" x1="0%" x2="100%" y1="50%" y2="50%">
+                      <stop offset="0%" stop-color="#6D4BFF" stop-opacity="0.05"></stop>
+                      <stop offset="50%" stop-color="#A58EFF" stop-opacity="0.7"></stop>
+                      <stop offset="100%" stop-color="#39D8FF" stop-opacity="0.05"></stop>
+                    </linearGradient>
+                    <linearGradient id="barGradSlender" x1="0%" x2="0%" y1="100%" y2="0%">
+                      <stop offset="0%" stop-color="#6D4BFF" stop-opacity="0.08"></stop>
+                      <stop offset="55%" stop-color="#6D4BFF" stop-opacity="0.45"></stop>
+                      <stop offset="100%" stop-color="#39D8FF" stop-opacity="0.8"></stop>
+                    </linearGradient>
+                    <linearGradient id="barGradCyan" x1="0%" x2="0%" y1="100%" y2="0%">
+                      <stop offset="0%" stop-color="#6D4BFF" stop-opacity="0.05"></stop>
+                      <stop offset="40%" stop-color="#5570FF" stop-opacity="0.4"></stop>
+                      <stop offset="100%" stop-color="#39D8FF" stop-opacity="0.65"></stop>
+                    </linearGradient>
+                    <linearGradient id="notePurpleGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                      <stop offset="0%" stop-color="#A58EFF"></stop>
+                      <stop offset="100%" stop-color="#6D4BFF"></stop>
+                    </linearGradient>
+                    <linearGradient id="noteCyanGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                      <stop offset="0%" stop-color="#8FE7FF"></stop>
+                      <stop offset="100%" stop-color="#39D8FF"></stop>
+                    </linearGradient>
+
+                    <filter id="delicateGlow" x="-30%" y="-30%" width="160%" height="160%">
+                      <feGaussianBlur stdDeviation="5" result="blur1"></feGaussianBlur>
+                      <feMerge>
+                        <feMergeNode in="blur1"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                      </feMerge>
+                    </filter>
+                    <filter id="subtleAura" x="-40%" y="-40%" width="180%" height="180%">
+                      <feGaussianBlur stdDeviation="12" result="blur"></feGaussianBlur>
+                    </filter>
+
+                    <!-- Reusable note shapes -->
+                    <path id="noteA" d="M6 23 C3.8 23 2 21.4 2 19.4 C2 17.4 3.7 15.9 5.9 15.9 C7.5 15.9 8.9 16.9 9.5 18.2 L9.5 3.2 C9.5 2.3 10.2 1.6 11 1.8 C14.9 2.8 18.6 6 18.9 10.8 C19 11.4 18.5 11.9 17.9 11.9 C17.3 11.9 16.9 11.4 16.8 10.8 C16.5 7.1 13.6 4.4 11 3.7 L11 19.2 C10.7 21.3 8.6 23 6 23 Z"></path>
+                    <path id="noteB" d="M6 24 C3.8 24 2 22.4 2 20.4 C2 18.4 3.8 16.9 6 16.9 C7.6 16.9 9 17.8 9.6 19.1 L9.6 5.8 L23.4 2.4 L23.4 17.1 C22.8 15.8 21.4 14.9 19.8 14.9 C17.6 14.9 15.8 16.4 15.8 18.4 C15.8 20.4 17.6 22 19.8 22 C22.3 22 24.5 20.4 24.7 18.3 L24.7 1.4 C24.7 0.6 23.9 0 23.1 0.2 L8.9 3.6 C8.3 3.7 7.9 4.3 7.9 4.9 L7.9 20.2 C7.6 22.3 5.5 24 3.1 24 Z"></path>
+                    <path id="noteC" d="M5.5 19 C3.6 19 2 17.6 2 15.9 C2 14.2 3.5 12.9 5.4 12.9 C6.8 12.9 8 13.7 8.5 14.8 L8.5 2.5 C8.5 1.8 9.1 1.2 9.8 1.4 C13.2 2.2 16.5 4.8 16.8 8.8 C16.9 9.3 16.5 9.7 16 9.7 C15.5 9.7 15.1 9.3 15 8.8 C14.7 5.8 12.2 3.6 9.8 3 L9.8 15.8 C9.6 17.6 7.7 19 5.5 19 Z"></path>
+                  </defs>
+
+                  <!-- Soft background auras -->
+                  <g opacity="0.4">
+                    <circle cx="320" cy="200" r="110" fill="#6D4BFF" filter="url(#subtleAura)" opacity="0.22"></circle>
+                    <circle cx="420" cy="180" r="90" fill="#39D8FF" filter="url(#subtleAura)" opacity="0.18"></circle>
+                    <circle cx="240" cy="210" r="80" fill="#6D4BFF" filter="url(#subtleAura)" opacity="0.15"></circle>
+                  </g>
+
+                  <!-- Equalizer bars -->
+                  <g opacity="0.55">
+                    <rect fill="url(#barGradSlender)" height="20" rx="1" width="2" x="110" y="190"></rect>
+                    <rect fill="url(#barGradSlender)" height="40" rx="1" width="2" x="122" y="180"></rect>
+                    <rect fill="url(#barGradCyan)" height="56" rx="1" width="2" x="134" y="172"></rect>
+                    <rect fill="url(#barGradCyan)" height="32" rx="1" width="2" x="146" y="184"></rect>
+                    <rect fill="url(#barGradSlender)" height="72" rx="1" width="2" x="158" y="164"></rect>
+                    <rect fill="url(#barGradCyan)" height="92" rx="1" width="2" x="170" y="154"></rect>
+                    <rect fill="url(#barGradSlender)" height="112" rx="1.25" width="2.5" x="182" y="144"></rect>
+                    <rect fill="url(#barGradSlender)" height="84" rx="1" width="2" x="194" y="158"></rect>
+                    <rect fill="url(#barGradCyan)" height="60" rx="1" width="2" x="206" y="170"></rect>
+                    <rect fill="url(#barGradCyan)" height="88" rx="1" width="2" x="218" y="156"></rect>
+                    <rect fill="url(#barGradSlender)" height="120" rx="1.25" width="2.5" x="230" y="140"></rect>
+                    <rect fill="url(#barGradSlender)" height="140" rx="1.25" width="2.5" x="242" y="130"></rect>
+                    <rect fill="url(#barGradCyan)" height="108" rx="1" width="2" x="254" y="146"></rect>
+                    <rect fill="url(#barGradCyan)" height="72" rx="1" width="2" x="266" y="164"></rect>
+                    <rect fill="url(#barGradSlender)" height="96" rx="1" width="2" x="278" y="152"></rect>
+                    <rect fill="url(#barGradSlender)" height="148" rx="1.25" width="2.5" x="290" y="126"></rect>
+                    <rect fill="url(#barGradCyan)" height="168" rx="1.25" width="2.5" x="302" y="116"></rect>
+                    <rect fill="url(#barGradSlender)" height="136" rx="1.25" width="2.5" x="314" y="132"></rect>
+                    <rect fill="url(#barGradCyan)" height="108" rx="1" width="2" x="326" y="146"></rect>
+                    <rect fill="url(#barGradSlender)" height="156" rx="1.25" width="2.5" x="338" y="122"></rect>
+                    <rect fill="url(#barGradCyan)" height="180" rx="1.25" width="2.5" x="350" y="110"></rect>
+                    <rect fill="url(#barGradSlender)" height="144" rx="1.25" width="2.5" x="362" y="128"></rect>
+                    <rect fill="url(#barGradCyan)" height="104" rx="1" width="2" x="374" y="148"></rect>
+                    <rect fill="url(#barGradSlender)" height="128" rx="1.25" width="2.5" x="386" y="136"></rect>
+                    <rect fill="url(#barGradSlender)" height="160" rx="1.25" width="2.5" x="398" y="120"></rect>
+                    <rect fill="url(#barGradCyan)" height="136" rx="1.25" width="2.5" x="410" y="132"></rect>
+                    <rect fill="url(#barGradCyan)" height="100" rx="1" width="2" x="422" y="150"></rect>
+                    <rect fill="url(#barGradSlender)" height="120" rx="1" width="2" x="434" y="140"></rect>
+                    <rect fill="url(#barGradCyan)" height="88" rx="1" width="2" x="446" y="156"></rect>
+                    <rect fill="url(#barGradSlender)" height="108" rx="1" width="2" x="458" y="146"></rect>
+                    <rect fill="url(#barGradSlender)" height="76" rx="1" width="2" x="470" y="162"></rect>
+                    <rect fill="url(#barGradCyan)" height="52" rx="1" width="2" x="482" y="174"></rect>
+                    <rect fill="url(#barGradSlender)" height="68" rx="1" width="2" x="494" y="166"></rect>
+                    <rect fill="url(#barGradSlender)" height="40" rx="1" width="2" x="506" y="180"></rect>
+                    <rect fill="url(#barGradCyan)" height="24" rx="1" width="2" x="518" y="188"></rect>
+                  </g>
+
+                  <!-- Wave lines -->
+                  <g filter="url(#delicateGlow)">
+                    <path d="M20 200 C 90 200, 130 255, 200 238 C 270 220, 310 135, 380 152 C 450 170, 490 265, 560 228 C 610 200, 640 200, 660 200" fill="none" stroke="url(#delicateCyanPurple)" stroke-linecap="round" stroke-width="1.5"></path>
+                    <path d="M20 201 C 80 198, 120 135, 190 150 C 260 166, 290 270, 370 248 C 450 226, 480 125, 550 142 C 600 155, 630 201, 660 201" fill="none" stroke="url(#delicatePurpleCyan)" stroke-linecap="round" stroke-width="1.75"></path>
+                    <path d="M20 200 C 70 200, 110 105, 180 122 C 250 140, 280 275, 350 256 C 420 238, 460 95, 530 112 C 590 128, 630 198, 660 200" fill="none" stroke="url(#delicatePurpleCyan)" stroke-linecap="round" stroke-width="1.9"></path>
+                    <path d="M30 198 C 95 196, 145 162, 210 176 C 275 190, 305 232, 375 218 C 445 204, 475 167, 540 181 C 595 192, 630 198, 650 198" fill="none" opacity="0.75" stroke="url(#delicateVioletWave)" stroke-dasharray="3 7" stroke-linecap="round" stroke-width="1"></path>
+                    <path d="M70 200 C 130 182, 190 178, 250 194 C 310 210, 370 215, 430 196 C 490 178, 550 191, 610 200" fill="none" opacity="0.55" stroke="url(#delicateCyanPurple)" stroke-dasharray="2 6" stroke-linecap="round" stroke-width="1"></path>
+                  </g>
+
+                  <!-- Glowing dots -->
+                  <g filter="url(#delicateGlow)">
+                    <circle cx="180" cy="122" r="2.5" fill="#6D4BFF"></circle>
+                    <circle cx="242" cy="130" r="2" fill="#39D8FF"></circle>
+                    <circle cx="302" cy="116" r="2.5" fill="#39D8FF"></circle>
+                    <circle cx="350" cy="110" r="2.5" fill="#6D4BFF"></circle>
+                    <circle cx="370" cy="248" r="2" fill="#39D8FF"></circle>
+                    <circle cx="530" cy="112" r="2.5" fill="#39D8FF"></circle>
+                    <circle cx="550" cy="142" r="2" fill="#6D4BFF"></circle>
+                    <circle cx="190" cy="150" r="2" fill="#39D8FF"></circle>
+                  </g>
+
+                  <!-- Floating music notes -->
+                  <g filter="url(#delicateGlow)">
+                    <use href="#noteA" transform="translate(138, 92) scale(0.95)" fill="url(#notePurpleGrad)"></use>
+                    <use href="#noteB" transform="translate(286, 54) scale(1.05)" fill="url(#noteCyanGrad)"></use>
+                    <use href="#noteB" transform="translate(446, 76) scale(0.95)" fill="url(#notePurpleGrad)"></use>
+                    <use href="#noteC" transform="translate(540, 94) scale(0.85)" fill="url(#noteCyanGrad)"></use>
+                    <use href="#noteC" transform="translate(96, 214) scale(0.78)" fill="url(#notePurpleGrad)"></use>
+                    <use href="#noteC" transform="translate(216, 268) scale(0.8)" fill="url(#noteCyanGrad)"></use>
+                    <use href="#noteC" transform="translate(405, 258) scale(0.78)" fill="url(#notePurpleGrad)"></use>
+                    <use href="#noteC" transform="translate(515, 235) scale(0.78)" fill="url(#noteCyanGrad)"></use>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== Music Categories Section ==================== -->
+      <section class="Categories">
+        <!-- Rap card -->
+        <div class="Category-Card">
+          <img src="./Images/Logo & Sections/rap.png" alt="Rap/Hip-Hop card" />
+          <div class="Category-Text">
+            <h2>Rap/<span class="accent">Hip-Hop</span></h2>
+            <p>Real beats. Raw stories.</p>
+          </div>
+          <a href="#" class="Explore-btn">
+            Explore Rap
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Golden Voices card -->
+        <div class="Category-Card Category-Card--gold">
+          <img src="./Images/Logo & Sections/classic.jpg" alt="Golden Voices card" />
+          <div class="Category-Text">
+            <h2><span class="accent">Golden</span> Voices</h2>
+            <p>Pure classics. Pure vibes.</p>
+          </div>
+          <a href="#" class="Explore-btn">
+            Explore Golden Voices
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Top 5 Discoveries Section -->
+      <section class="Top5">
+        <div class="Top5-head">
+          <h2>Top 5 Discoveries</h2>
+          <p>
+            A handpicked selection of the site's top 5 tracks, bringing together
+            the best sounds and vibes in one place.
+          </p>
+        </div>
+
+        <div class="Top5-body">
+          <!-- پلیر اصلی (آهنگ در حال پخش) -->
+          <div class="Now-playing" id="nowPlaying">
+            <div class="Now-top">
+              <span class="Now-badge">
+                <b id="npRank">RANK #01</b>
+                <i class="Dot"></i>
+                <span id="npTag">BREAKTHROUGH OF THE WEEK</span>
+              </span>
+              <span class="Now-plays">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <b id="npPlays">1.2M</b> Plays
+              </span>
+            </div>
+
+            <div class="Now-cover">
+              <img id="npCover" src="" alt="" />
+              <button class="Cover-play" id="coverPlay" aria-label="Play or pause">
+                <i class="fa-solid fa-play icon-play"></i>
+                <i class="fa-solid fa-pause icon-pause"></i>
+              </button>
+            </div>
+
+            <div class="Now-info">
+              <div class="Now-names">
+                <h3 id="npTitle"></h3>
+                <p id="npArtist"></p>
+              </div>
+              <div class="Now-actions">
+                <!-- دانلود واقعی آهنگ (لینک و اسم فایل رو JS پر می‌کنه) -->
+                <a class="Icon-btn" id="npDownload" href="#" download aria-label="Download song" title="Download song">
+                  <i class="fa-solid fa-download"></i>
+                </a>
+                <button class="Playlist-btn" id="npPlaylist">
+                  <i class="fa-solid fa-plus"></i>
+                  <span>ADD TO PLAYLIST</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- نوار پخش -->
+            <div class="Player">
+              <div class="Progress" id="progress" aria-label="Seek">
+                <div class="Progress-fill" id="progressFill"></div>
+              </div>
+              <div class="Player-row">
+                <span class="Time" id="curTime">00:00</span>
+                <div class="Controls">
+                  <button class="Ctrl" id="prevBtn" aria-label="Previous">
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+                  <button class="Ctrl Ctrl-main" id="playBtn" aria-label="Play or pause">
+                    <i class="fa-solid fa-play icon-play"></i>
+                    <i class="fa-solid fa-pause icon-pause"></i>
+                  </button>
+                  <button class="Ctrl" id="nextBtn" aria-label="Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+                </div>
+                <span class="Time" id="totalTime">00:00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- لیست بقیه‌ی آهنگ‌ها + کارت خواننده‌ها -->
+          <div class="Contenders">
+            <div class="Contenders-head">
+              <span>RISING CONTENDERS</span>
+              <span>TAP A TRACK TO PLAY</span>
+            </div>
+            <ul class="Track-list" id="trackList"></ul>
+
+            <!-- کارت‌های خواننده -->
+            <div class="Artist-wrap">
+              <div class="Contenders-head">
+                <span id="artistHeading">ABOUT THE ARTIST</span>
+                <span>NOW PLAYING</span>
+              </div>
+              <div class="Artist-cards" id="artistCards"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer-columns">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="./Images/Logo & Sections/Logo 1.svg" alt="Vibe5 logo" />
+          </a>
+          <h3>Your Rhythm, Your Vibe</h3>
+          <p>
+            Curated excellence in classic pop and rap. Explore the top five
+            tracks of legendary artists.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explore Vibe5</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">My Playlists</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">My Account</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Music Genres</h3>
+          <ul>
+            <li><a href="#">Rap / Hip-Hop</a></li>
+            <li><a href="#">Golden Voices</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Stay Tuned</h3>
+          <p>Subscribe for updates on new artists and playlists.</p>
+          <form>
+            <input type="email" placeholder="Enter your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <p class="footer-copyright">&copy; 2026 Vibe5. All rights reserved.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1756 @@
+/* ==============================
+   فونت اصلی سایت
+============================== */
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url(./fonts/PlusJakartaSans-Regular.ttf);
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url(./fonts/PlusJakartaSans-Bold.ttf);
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* ==============================
+   تنظیمات کلی صفحه
+============================== */
+
+:root {
+    /* فاصله‌ی کناری صفحه (در موبایل کمتر می‌شه) */
+    --page-pad: 60px;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #14161B;
+    margin: 0;
+    padding: 0 var(--page-pad);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ==============================
+   هدر اصلی سایت
+============================== */
+
+#Header {
+    margin-top: 40px;
+    padding: 8px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* افکت شیشه‌ای هدر */
+    background: rgba(28, 36, 51, 0.55);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+    border-radius: 16px;
+    border: 1px solid rgba(109, 75, 255, 0.25);
+
+    /* سایه نئونی بنفش و فیروزه‌ای */
+    box-shadow:
+        0 0 10px rgba(109, 75, 255, 0.15),
+        0 0 25px rgba(0, 240, 255, 0.08),
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+    transition: box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    /* برای قرارگیری خط نئونی پایین هدر */
+    position: relative;
+    isolation: isolate;
+}
+
+/* ==============================
+   خط نئونی پایین هدر
+============================== */
+
+#Header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+
+    background: linear-gradient(90deg,
+            transparent,
+            #6D4BFF,
+            #00F0FF,
+            #6D4BFF,
+            transparent);
+
+    box-shadow: 0 0 10px rgba(109, 75, 255, 0.7);
+}
+
+/* ==============================
+   لوگو
+============================== */
+
+#Header .Header-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 32px;
+}
+
+#Header .Header-logo img {
+    display: block;
+    width: auto;
+    max-height: 56px;
+}
+
+/* ==============================
+   تنظیمات لینک‌های هدر
+============================== */
+
+#Header a {
+    text-decoration: none;
+    color: #F5F7FA;
+}
+
+/* ==============================
+   ناحیه‌ی منو (لینک‌ها + جستجو + حساب کاربری)
+============================== */
+
+#Header .Header-menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+/* ==============================
+   منوی اصلی هدر
+============================== */
+
+#Header nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* افکت هاور لینک‌های منو */
+
+#Header nav a {
+    transition: color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+#Header nav a:hover {
+    color: #A994FF;
+    text-shadow: 0 0 10px rgba(109, 75, 255, 0.65);
+}
+
+/* ==============================
+   بخش ورود و ثبت‌نام
+============================== */
+
+#Header .Header-account {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+}
+
+/* افکت هاور دکمه Login */
+
+#Header .Header-account a:not(.signup-btn) {
+    transition: color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+#Header .Header-account a:not(.signup-btn):hover {
+    color: #A994FF;
+    text-shadow: 0 0 10px rgba(109, 75, 255, 0.65);
+}
+
+/* ظاهر دکمه Sign Up */
+
+#Header .signup-btn {
+    background: rgba(109, 75, 255, 0.15);
+    border: 1px solid rgba(109, 75, 255, 0.5);
+    border-radius: 10px;
+    padding: 9px 18px;
+    white-space: nowrap;
+
+    transition: background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* افکت هاور دکمه Sign Up */
+
+#Header .signup-btn:hover {
+    background: rgba(109, 75, 255, 0.3);
+    border-color: #8B70FF;
+    box-shadow: 0 0 15px rgba(109, 75, 255, 0.35);
+    color: #FFFFFF;
+}
+
+/* ==============================
+   کادر جستجو
+============================== */
+
+#Header-search {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background-color: #191D24;
+    border-radius: 9999px;
+    border: 1px solid #333C4A;
+
+    padding: 10px 21px;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin-left: auto;
+
+    /* انیمیشن تغییر حالت سرچ */
+    transition: width 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* حالت فعال سرچ هنگام کلیک روی آن */
+
+#Header-search:focus-within {
+    width: 350px;
+    border-color: #6D4BFF;
+    box-shadow: 0 0 12px rgba(109, 75, 255, 0.3);
+}
+
+/* ==============================
+   فیلد متنی داخل سرچ
+============================== */
+
+.search-input {
+    min-width: 0;
+    flex: 1;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #8A94A1;
+
+    padding: 0;
+    margin: 0;
+}
+
+/* ==============================
+   دکمه‌ی منوی همبرگری (فقط موبایل/تبلت)
+============================== */
+
+.Menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    border: 1px solid rgba(109, 75, 255, 0.5);
+    border-radius: 12px;
+    background: rgba(109, 75, 255, 0.15);
+    color: #F5F7FA;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Menu-toggle:hover,
+.Menu-toggle:focus-visible {
+    background: rgba(109, 75, 255, 0.3);
+    box-shadow: 0 0 15px rgba(109, 75, 255, 0.35);
+    outline: none;
+}
+
+
+/* ==========================================
+   Vibe5 — Hero Section Styles
+   ========================================== */
+
+/* Glass pill (small badge above the title) */
+.glass-pill {
+    background: rgba(30, 34, 43, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(51, 60, 74, 0.6);
+    margin-top: 80px;
+}
+
+/* ==============================
+ Music Categories Section
+============================== */
+
+.Categories {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 648px));
+    justify-content: center;
+    gap: 24px;
+}
+
+/* رنگ‌های اختصاصی هر کارت (پیش‌فرض = رپ، بنفش) */
+.Category-Card {
+    --tint: 20, 8, 45;
+    /* رنگ گرادیان (بنفش خیلی تیره) */
+    --glow: 123, 92, 255;
+    /* رنگ درخشش دور کارت */
+    --accent: #7B5CFF;
+    /* رنگ کلمه‌ی عنوان */
+    --border: #3A2B66;
+    /* رنگ کادر */
+    --btn-bg: #5B3F8C;
+    /* پس‌زمینه‌ی دکمه */
+    --btn-text: #F5F7FA;
+    /* رنگ متن دکمه */
+
+    width: 100%;
+    aspect-ratio: 648 / 652;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-sizing: border-box;
+    box-shadow: 0 12px 40px -12px rgba(var(--glow), 0.35);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* کارت دوم = طلایی (فقط مقدارها عوض می‌شن) */
+.Category-Card--gold {
+    --tint: 30, 14, 4;
+    /* قهوه‌ای تیره‌ی گرم */
+    --glow: 227, 184, 74;
+    --accent: #E3B84A;
+    --border: #C79C32;
+    --btn-bg: linear-gradient(135deg, #E3B84A, #C79C32);
+    --btn-text: #1A1206;
+}
+
+.Category-Card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+/* گرادیان رنگی روی عکس، با رنگ هر کارت */
+.Category-Card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(var(--tint), 0.9) 0%,
+            rgba(var(--tint), 0.55) 22%,
+            rgba(var(--tint), 0) 45%,
+            rgba(var(--tint), 0) 55%,
+            rgba(var(--tint), 0.9) 100%);
+    pointer-events: none;
+}
+
+/* جعبه‌ی متن بالا-چپ */
+.Category-Text {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    right: 24px;
+    z-index: 2;
+}
+
+.Category-Text h2,
+.Category-Text p {
+    margin: 0;
+    color: #F5F7FA;
+}
+
+.Category-Text h2 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.Category-Text p {
+    color: #CBD3DF;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* بخش رنگی عنوان */
+.Category-Text .accent {
+    color: var(--accent);
+    transition: text-shadow 0.4s ease;
+}
+
+/* دکمه */
+.Explore-btn {
+    position: absolute;
+    left: 60px;
+    bottom: 40px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 9999px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.Explore-btn svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+/* ===== هاور روی کارت ===== */
+.Category-Card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 24px 60px -10px rgba(var(--glow), 0.55);
+}
+
+.Category-Card:hover img {
+    transform: scale(1.06);
+}
+
+.Category-Card:hover .accent {
+    text-shadow: 0 0 18px rgba(var(--glow), 0.7);
+}
+
+/* ===== هاور روی دکمه ===== */
+.Explore-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+    box-shadow: 0 10px 28px -4px rgba(var(--glow), 0.65);
+}
+
+.Explore-btn:hover svg {
+    transform: translateX(6px);
+}
+
+/* برای کسانی که انیمیشن رو در سیستمشون خاموش کردن */
+@media (prefers-reduced-motion: reduce) {
+
+    .Category-Card,
+    .Category-Card img,
+    .Explore-btn,
+    .Explore-btn svg {
+        transition: none;
+    }
+}
+
+/* ==============================
+ Top 5 Discoveries Section
+============================== */
+
+.Top5 {
+    --cyan: #2FD0FF;
+    --line: #2A3547;
+    --text: #F5F7FA;
+    --muted: #8A94A1;
+
+    width: 100%;
+    max-width: 1320px;
+    margin: 80px auto 80px;
+    box-sizing: border-box;
+    padding: 48px 64px 56px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background:
+        radial-gradient(900px 420px at 12% 0%, rgba(47, 208, 255, 0.10), transparent 60%),
+        linear-gradient(160deg, #17202F 0%, #14161B 70%);
+}
+
+.Top5 button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* ----- عنوان ----- */
+.Top5-head {
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+}
+
+.Top5-head h2 {
+    margin: 0 0 8px;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.Top5-head p {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #C3CBD6;
+    line-height: 1.6;
+}
+
+/* ----- دو ستون ----- */
+.Top5-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+/* ==============================
+ پلیر اصلی
+============================== */
+.Now-playing {
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: rgba(27, 36, 52, 0.85);
+    min-width: 0;
+}
+
+.Now-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.Now-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border: 1px solid rgba(47, 208, 255, 0.35);
+    border-radius: 9999px;
+    background: rgba(47, 208, 255, 0.08);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text);
+}
+
+.Now-badge b {
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.Now-badge .Dot {
+    width: 4px;
+    height: 4px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--muted);
+}
+
+.Now-plays {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.Now-plays b {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.Now-plays i {
+    margin-right: 6px;
+    color: var(--cyan);
+}
+
+/* ----- کاور ----- */
+.Now-cover {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #243049, #151B27);
+    transition: box-shadow 0.4s ease;
+}
+
+.Now-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.Now-cover img.swap-in {
+    animation: swapIn 0.45s ease;
+}
+
+@keyframes swapIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* وقتی آهنگ پخش می‌شه، دور کاور می‌درخشه */
+.Now-playing.is-playing .Now-cover {
+    box-shadow:
+        0 0 0 1px rgba(47, 208, 255, 0.4),
+        0 24px 60px -16px rgba(47, 208, 255, 0.5);
+}
+
+/* دکمه‌ی پلی روی کاور */
+.Cover-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 76px;
+    height: 76px;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 50%;
+    background: var(--cyan);
+    color: #06222C;
+    font-size: 28px;
+    box-shadow: 0 10px 30px rgba(47, 208, 255, 0.45);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.Cover-play:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* آیکون پلی و پاز: فقط یکی نشون داده می‌شه */
+.icon-pause {
+    display: none;
+}
+
+.is-playing .icon-play {
+    display: none;
+}
+
+.is-playing .icon-pause {
+    display: inline-block;
+}
+
+/* مثلث پلی کمی به راست کشیده بشه تا وسط دیده بشه */
+.icon-play {
+    margin-left: 4px;
+}
+
+/* موقع پخش، دکمه‌ی روی کاور مخفی می‌شه و با هاور برمی‌گرده */
+.is-playing .Cover-play {
+    opacity: 0;
+}
+
+.is-playing .Now-cover:hover .Cover-play {
+    opacity: 1;
+}
+
+/* روی دستگاه‌های لمسی هاور نداریم؛ دکمه‌ی روی کاور همیشه قابل دیدن بمونه */
+@media (hover: none) {
+    .is-playing .Cover-play {
+        opacity: 0.85;
+    }
+}
+
+/* ----- اسم آهنگ و دکمه‌ها ----- */
+.Now-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.Now-names {
+    min-width: 0;
+}
+
+.Now-names h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Now-names p {
+    margin: 4px 0 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--cyan);
+}
+
+.Now-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* برای هر دو تگ button و a کار می‌کنه */
+.Icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.Icon-btn:hover {
+    color: var(--text);
+    border-color: #3C4A60;
+}
+
+.Playlist-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 16px;
+    border: 1px solid rgba(47, 208, 255, 0.45);
+    border-radius: 12px;
+    background: rgba(47, 208, 255, 0.08);
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: background 0.25s ease;
+}
+
+.Playlist-btn:hover {
+    background: rgba(47, 208, 255, 0.18);
+}
+
+/* حالت «توی پلی‌لیست هست» (برای دکمه‌ی بزرگ و قلب ردیف‌ها) */
+.Playlist-btn.in-playlist {
+    background: rgba(47, 208, 255, 0.22);
+}
+
+.Icon-btn.in-playlist {
+    color: #FF5C8A;
+}
+
+/* ==============================
+ نوار پخش
+============================== */
+.Player {
+    margin-top: 26px;
+}
+
+.Progress {
+    position: relative;
+    height: 6px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    touch-action: none;
+}
+
+/* ناحیه‌ی کلیک بزرگ‌تر، بدون اینکه نوار کلفت بشه */
+.Progress::before {
+    content: "";
+    position: absolute;
+    inset: -10px 0;
+}
+
+.Progress-fill {
+    position: relative;
+    width: 0%;
+    height: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #2FD0FF, #7B5CFF);
+}
+
+/* دایره‌ی سر نوار */
+.Progress-fill::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 14px;
+    height: 14px;
+    transform: translate(50%, -50%) scale(0);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(47, 208, 255, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.Progress:hover .Progress-fill::after,
+.is-playing .Progress-fill::after {
+    transform: translate(50%, -50%) scale(1);
+}
+
+.Player-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.Time {
+    min-width: 48px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+}
+
+.Time:last-child {
+    text-align: right;
+}
+
+.Controls {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.Ctrl {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #C3CBD6;
+    font-size: 18px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.Ctrl:hover {
+    color: var(--text);
+    transform: scale(1.1);
+}
+
+.Ctrl-main {
+    width: 56px;
+    height: 56px;
+    background: var(--cyan);
+    color: #06222C;
+    font-size: 20px;
+    box-shadow: 0 8px 24px rgba(47, 208, 255, 0.35);
+}
+
+.Ctrl-main:hover {
+    color: #06222C;
+}
+
+/* ==============================
+ لیست آهنگ‌ها (سمت راست)
+============================== */
+.Contenders {
+    min-width: 0;
+}
+
+.Contenders-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.Track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.Track {
+    position: relative;
+    /* تا منوی سه‌نقطه نسبت به ردیف جاگذاری بشه */
+    display: grid;
+    grid-template-columns: 36px 60px minmax(0, 1fr) auto auto auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.Track:hover,
+.Track:focus-visible {
+    transform: translateX(6px);
+    border-color: rgba(47, 208, 255, 0.5);
+    background: rgba(47, 208, 255, 0.06);
+    outline: none;
+}
+
+/* ردیفی که منوش بازه، بالای بقیه‌ی ردیف‌ها قرار می‌گیره */
+.Track.menu-open {
+    z-index: 10;
+}
+
+.Track-rank {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cyan);
+}
+
+.Track-cover {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #243049, #151B27);
+}
+
+.Track-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* آیکون پلی که با هاور روی کاور میاد */
+.Track-cover i {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(6, 10, 18, 0.55);
+    color: #fff;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.Track:hover .Track-cover i {
+    opacity: 1;
+}
+
+.Track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.Track-info strong {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Track-info small {
+    font-size: 14px;
+    color: var(--cyan);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Track-genre {
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.Track-dur {
+    min-width: 40px;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+}
+
+.Track .Icon-btn {
+    width: 36px;
+    height: 36px;
+    border-color: transparent;
+}
+
+/* ----- منوی سه‌نقطه ----- */
+.Track-menu {
+    position: absolute;
+    top: 50%;
+    right: 62px;
+    transform: translateY(-50%) translateX(8px);
+    min-width: 210px;
+    max-width: calc(100vw - 48px);
+    padding: 6px;
+    box-sizing: border-box;
+    border: 1px solid #33425A;
+    border-radius: 14px;
+    background: #1B2434;
+    box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    cursor: default;
+}
+
+.Track.menu-open .Track-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
+}
+
+.Menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #E6EBF2;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.Menu-item i {
+    width: 16px;
+    text-align: center;
+    color: var(--cyan);
+}
+
+.Menu-item:hover,
+.Menu-item:focus-visible {
+    background: rgba(47, 208, 255, 0.12);
+    color: #fff;
+    outline: none;
+}
+
+/* ==============================
+ کارت خواننده
+============================== */
+.Artist-wrap {
+    margin-top: 28px;
+}
+
+.Artist-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+    gap: 16px;
+}
+
+.Artist-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background:
+        radial-gradient(300px 160px at 0% 0%, rgba(47, 208, 255, 0.10), transparent 70%),
+        rgba(27, 36, 52, 0.85);
+    animation: cardIn 0.45s ease both;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.Artist-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.Artist-avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2FD0FF, #7B5CFF);
+    color: #06222C;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.Artist-name {
+    min-width: 0;
+}
+
+.Artist-name h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Artist-name span {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.Artist-bio {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #C3CBD6;
+}
+
+.Artist-track {
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+}
+
+.Artist-track small {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.Artist-track strong {
+    font-size: 14px;
+    color: var(--cyan);
+}
+
+.Artist-track p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #C3CBD6;
+}
+
+.Artist-link {
+    margin-top: auto;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+.Artist-link:hover {
+    text-decoration: underline;
+}
+
+/* پیام کوچیک پایین صفحه (مثلاً «added to your playlist») */
+.Toast {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    transform: translate(-50%, 20px);
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+    padding: 12px 20px;
+    border: 1px solid rgba(47, 208, 255, 0.4);
+    border-radius: 9999px;
+    background: #1B2434;
+    color: #F5F7FA;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.Toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* 
+================
+footer
+=================
+ */
+
+#footer {
+    /* رنگ‌های هم‌تم با سکشن Top 5 */
+    --f-cyan: #2FD0FF;
+    --f-violet: #7B5CFF;
+    --f-line: #2A3547;
+    --f-text: #F5F7FA;
+    --f-body: #C3CBD6;
+    --f-muted: #8A94A1;
+
+    background:
+        radial-gradient(900px 300px at 12% 0%, rgba(47, 208, 255, 0.08), transparent 60%),
+        #14161B;
+    border-top: 1px solid var(--f-line);
+    color: var(--f-body);
+    /* با فاصله‌ی کناری بدنه هماهنگه تا فوتر تمام‌عرض بشه */
+    margin: 0 calc(var(--page-pad) * -1);
+    padding: 60px 40px 24px;
+}
+
+/* ستون‌ها کنار هم با فاصله */
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ستون اول کمی پهن‌تر */
+.footer-brand {
+    flex: 1.5 1 280px;
+}
+
+.footer-logo img {
+    max-width: 140px;
+    height: auto;
+}
+
+.footer-col h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--f-text);
+    margin: 0;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--f-body);
+    margin: 0;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* لینک‌ها */
+.footer-col a {
+    color: var(--f-body);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-col ul a {
+    display: inline-block;
+}
+
+.footer-col a:hover,
+.footer-col a:focus-visible {
+    color: var(--f-cyan);
+    outline: none;
+}
+
+.footer-col ul a:hover,
+.footer-col ul a:focus-visible {
+    transform: translateX(4px);
+}
+
+/* آیکون‌های شبکه اجتماعی */
+.social-links {
+    display: flex;
+    gap: 16px;
+    font-size: 20px;
+}
+
+.social-links a {
+    color: var(--f-muted);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+    color: var(--f-cyan);
+    transform: translateY(-3px);
+}
+
+/* فرم عضویت */
+.footer-col form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col input {
+    padding: 10px 12px;
+    border: 1px solid var(--f-line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--f-text);
+    font-family: inherit;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-col input::placeholder {
+    color: var(--f-muted);
+}
+
+.footer-col input:focus {
+    outline: none;
+    border-color: rgba(47, 208, 255, 0.6);
+    box-shadow: 0 0 0 3px rgba(47, 208, 255, 0.15);
+}
+
+.footer-col button {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background: var(--f-cyan);
+    color: #06222C;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(47, 208, 255, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-col button:hover,
+.footer-col button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(47, 208, 255, 0.4);
+    outline: none;
+}
+
+/* خط جداکننده */
+.footer-divider {
+    max-width: 1200px;
+    margin: 40px auto 20px;
+    border: none;
+    border-top: 1px solid var(--f-line);
+}
+
+/* کپی‌رایت */
+.footer-copyright {
+    text-align: center;
+    font-size: 13px;
+    color: var(--f-muted);
+    margin: 0;
+}
+
+/* ==============================================================
+   ریسپانسیو
+   ============================================================== */
+
+/* ---------- لپ‌تاپ کوچیک: ستون‌ها تنگ می‌شن، ژانر ردیف مخفی می‌شه ---------- */
+@media (max-width: 1280px) and (min-width: 1101px) {
+    .Top5 {
+        padding: 40px 36px 48px;
+    }
+
+    .Top5-body {
+        gap: 32px;
+    }
+
+    .Track {
+        grid-template-columns: 36px 60px minmax(0, 1fr) auto auto auto;
+        gap: 12px;
+    }
+
+    .Track-genre {
+        display: none;
+    }
+}
+
+/* ---------- تبلت و پایین‌تر ---------- */
+@media (max-width: 1100px) {
+    :root {
+        --page-pad: 32px;
+    }
+
+    .Top5 {
+        padding: 32px 24px 36px;
+    }
+
+    .Top5-body {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+/* ---------- منوی همبرگری (تبلت و موبایل) ---------- */
+@media (max-width: 900px) {
+    #Header {
+        flex-wrap: wrap;
+        margin-top: 16px;
+        padding: 8px 16px;
+    }
+
+    #Header .Header-logo {
+        margin-right: 0;
+    }
+
+    #Header .Header-logo img {
+        max-height: 44px;
+    }
+
+    .Menu-toggle {
+        display: inline-flex;
+    }
+
+    /* منوی بازشونده زیر لوگو و دکمه */
+    #Header .Header-menu {
+        display: none;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 16px 0 12px;
+        margin-top: 8px;
+        border-top: 1px solid rgba(109, 75, 255, 0.25);
+    }
+
+    #Header.menu-open .Header-menu {
+        display: flex;
+        animation: menuDrop 0.3s ease both;
+    }
+
+    #Header nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    #Header nav a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    #Header nav a:hover {
+        background: rgba(109, 75, 255, 0.12);
+    }
+
+    #Header-search,
+    #Header-search:focus-within {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #Header .Header-account {
+        margin-left: 0;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    #Header .Header-account a {
+        flex: 1;
+        text-align: center;
+        padding: 11px 18px;
+        border-radius: 10px;
+    }
+
+    #Header .Header-account a:not(.signup-btn) {
+        border: 1px solid #333C4A;
+    }
+
+    /* ----- کارت دسته‌بندی‌ها: زیر هم ----- */
+    .Categories {
+        margin-top: 56px;
+        grid-template-columns: minmax(0, 648px);
+    }
+
+    .Category-Text {
+        top: 28px;
+        left: 32px;
+        right: 32px;
+    }
+
+    .Category-Text h2 {
+        font-size: 30px;
+    }
+
+    .Category-Text p {
+        font-size: 16px;
+    }
+
+    .Explore-btn {
+        left: 32px;
+        bottom: 28px;
+        font-size: 17px;
+        padding: 14px 24px;
+    }
+}
+
+@keyframes menuDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- موبایل ---------- */
+@media (max-width: 640px) {
+    :root {
+        --page-pad: 16px;
+    }
+
+    .glass-pill {
+        margin-top: 24px;
+    }
+
+    .Categories {
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .Category-Card {
+        border-radius: 20px;
+    }
+
+    .Category-Text {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .Category-Text h2 {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+
+    .Category-Text p {
+        font-size: 14px;
+    }
+
+    .Explore-btn {
+        left: 20px;
+        bottom: 20px;
+        font-size: 15px;
+        padding: 12px 20px;
+        gap: 8px;
+    }
+
+    /* ----- Top 5 ----- */
+    .Top5 {
+        margin: 48px auto;
+        padding: 24px 16px 28px;
+        border-radius: 20px;
+    }
+
+    .Top5-head {
+        padding-bottom: 18px;
+        margin-bottom: 24px;
+    }
+
+    .Top5-head h2 {
+        font-size: 28px;
+    }
+
+    .Now-playing {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .Now-badge {
+        padding: 6px 10px;
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .Cover-play {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+    }
+
+    .Now-info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 18px;
+    }
+
+    .Now-names {
+        width: 100%;
+    }
+
+    .Now-names h3 {
+        font-size: 22px;
+    }
+
+    .Now-names p {
+        font-size: 18px;
+    }
+
+    .Now-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .Playlist-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .Controls {
+        gap: 10px;
+    }
+
+    .Track {
+        grid-template-columns: 30px 52px minmax(0, 1fr) auto auto;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .Track:hover,
+    .Track:focus-visible {
+        transform: none;
+    }
+
+    .Track-cover {
+        width: 52px;
+        height: 52px;
+    }
+
+    .Track-genre,
+    .Track-dur {
+        display: none;
+    }
+
+    .Track-menu {
+        right: 52px;
+        min-width: 190px;
+    }
+
+    .Contenders-head {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .Artist-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .Toast {
+        bottom: 20px;
+        font-size: 13px;
+    }
+
+    /* ----- فوتر ----- */
+    #footer {
+        padding: 40px 20px 20px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .footer-col,
+    .footer-brand {
+        flex: 0 0 auto;
+    }
+
+    .footer-divider {
+        margin: 32px auto 16px;
+    }
+}
+
+@media (max-width: 380px) {
+    .Now-badge #npTag {
+        display: none;
+    }
+
+    .Now-badge .Dot {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .Now-cover img.swap-in,
+    .Artist-card,
+    #Header.menu-open .Header-menu {
+        animation: none;
+    }
+
+    .Track,
+    .Track-menu,
+    .Cover-play,
+    .Ctrl,
+    .Menu-toggle {
+        transition: none;
+    }
+
+    .footer-col a,
+    .footer-col input,
+    .footer-col button {
+        transition: none;
+    }
+}
