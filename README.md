@@ -1,3 +1,4 @@
+
 <div align="center">
 
   <img src="./Images/Logo%20%26%20Sections/Logo%201.svg" width="180" alt="Vibe5 Logo">
@@ -49,7 +50,7 @@ The current version focuses on the homepage and its visual experience, while the
 - **Git & GitHub** – Version control and project management.
 - **VS Code** – Development environment.
 
-- ---
+---
 
 ## ✨ Features & Roadmap
 
@@ -59,17 +60,16 @@ The current version focuses on the homepage and its visual experience, while the
 - [x] Dark-themed visual identity
 - [x] Homepage layout and structure
 - [x] Artist category sections
-- [x] Responsive design implementation (in progress)
 
 ### Planned Features
 
+- [ ] Responsive design implementation
 - [ ] Individual artist pages
 - [ ] Top 5 songs for each artist
 - [ ] Music playback functionality
 - [ ] User authentication and accounts
 - [ ] Personalized playlists
 - [ ] Search functionality
-- [ ] Improved mobile experience
 
 ---
 
